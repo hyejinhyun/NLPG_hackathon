@@ -1,3 +1,6 @@
+'''
+크롤링 > db 삽입
+'''
 from newspaper import Article
 from urllib.request import urlopen
 import urllib.parse
@@ -21,7 +24,7 @@ def get_articles_list():
 
 '''
 def text_rank(content):
-  //////
+  ///string입력 --> string 반환 여기서 크롤링 할 필요 없음.///
   return summary
 '''
 
@@ -38,7 +41,8 @@ def text_rank(content):
   return articles
 
 
-
+#크롤링 & 자연어 처리 끝난 데이터 db에 삽입하기
+#full content 말고 자연어 처리된 데이터를 디비에 넣는 걸로 소스 수정 필요
 import pymysql
 
 # 접속
