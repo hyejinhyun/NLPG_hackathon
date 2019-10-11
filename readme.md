@@ -14,11 +14,53 @@ python, html, php, bitnami(apache, mysql)
 
 ## 2.2 textrank 알고리즘
 
-text summarization은 extractive summarization과 abstractive summarization으로 나뉘는데 textrank 알고리즘은 대표적인 extractive summarization 알고리즘이다.
+>text summarization은 extractive summarization과 abstractive summarization으로 나뉘며 textrank 알고리즘은 대표적인 extractive summarization 알고리즘이다.
+
+```python
+class TextRank(object):
+    def __init__(self, text):
+        self.sent_tokenize = SentenceTokenizer()
+    
+        self.sentences = self.sent_tokenize.text2sentences(text)
+
+        self.nouns = self.sent_tokenize.get_nouns(self.sentences)
+
+        self.graph_matrix = GraphMatrix()
+        self.sent_graph = self.graph_matrix.build_sent_graph(self.nouns)
+
+        self.rank = Rank()
+        self.sent_rank_idx = self.rank.get_ranks(self.sent_graph)
+        self.sorted_sent_rank_idx = sorted(self.sent_rank_idx, key=lambda k: self.sent_rank_idx[k], reverse=True)
+
+
+    def summarize(self, sent_num=3):
+        summary = []
+        num = len(self.sentences)
+        if(num>=50):
+            sent_num = 5
+        index=[]
+        for idx in self.sorted_sent_rank_idx[:sent_num]:
+            index.append(idx)
+
+        index.sort()
+        for idx in index:
+            summary.append(self.sentences[idx])
+
+        return summary
+```
 
 # 3. References
 
+크롤링:
+
 <https://twpower.github.io/84-how-to-use-beautiful-soup>
+
 <https://excelsior-cjh.tistory.com/m/92>
+
+데이터베이스:
+
 <https://www.fun-coding.org/mysql_basic6.html>
+
+textrank:
+
 <https://github.com/ExcelsiorCJH/Projects>
