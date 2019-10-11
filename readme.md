@@ -1,5 +1,6 @@
 Online Newspaper Summarization Web Service using Textrank Algorithm
 ============
+> NLPG / 문효진, 백지희, 유현선, 정성원, 현혜진
 
 # 1. 프로젝트 소개
 
@@ -9,6 +10,15 @@ Online Newspaper Summarization Web Service using Textrank Algorithm
 
 ## 2.1 사용 언어 및 플랫폼
 
+python, html, php, bitnami(apache, mysql)
+
 ## 2.2 textrank 알고리즘
 
+text summarization은 extractive summarization과 abstractive summarization으로 나뉘는데 textrank 알고리즘은 대표적인 extractive summarization 알고리즘이다.
+
 # 3. References
+
+<https://twpower.github.io/84-how-to-use-beautiful-soup>
+<https://excelsior-cjh.tistory.com/m/92>
+<https://www.fun-coding.org/mysql_basic6.html>
+<https://github.com/ExcelsiorCJH/Projects>
