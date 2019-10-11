@@ -17,6 +17,7 @@ python, html, php, bitnami(apache, mysql)
 >text summarization은 extractive summarization과 abstractive summarization으로 나뉘며 textrank 알고리즘은 대표적인 extractive summarization 알고리즘이다.
 
 ```python
+#textrank 구현 코드 중 일부
 class TextRank(object):
     def __init__(self, text):
         self.sent_tokenize = SentenceTokenizer()
@@ -48,6 +49,8 @@ class TextRank(object):
 
         return summary
 ```
+
+크롤링한 기사 본문을 문장 단위로 나눠 tfidf 알고리즘을 이용해 중요도를 계산한다. 계산된 중요도를 기준으로 가장 중요도가 높은 n개의 문장을 return 한다
 
 # 3. References
 
